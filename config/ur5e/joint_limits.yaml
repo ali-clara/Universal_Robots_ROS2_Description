@@ -7,33 +7,38 @@
 #  - Support > Articles > UR articles > Max. joint torques
 #    https://www.universal-robots.com/articles/ur-articles/max-joint-torques
 #    retrieved: 2020-06-16, last modified: 2020-06-09
+
+# Modified per Alejo's specs, 2024-02-28
 joint_limits:
   shoulder_pan_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true # prev false
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
+    max_acceleration: 0.05
     max_effort: 150.0
     max_position: !degrees  360.0
-    max_velocity: !degrees  180.0
+    max_velocity: 1.0 # prev !degrees  180.0
     min_position: !degrees -360.0
   shoulder_lift_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true # prev false
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
+    max_acceleration: 0.05
     max_effort: 150.0
     max_position: !degrees  360.0
-    max_velocity: !degrees  180.0
+    max_velocity: 1.0 # prev !degrees  180.0
     min_position: !degrees -360.0
   elbow_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
+    max_acceleration: 0.05
     max_effort: 150.0
     # we artificially limit this joint to half its actual joint position limit
     # to avoid (MoveIt/OMPL) planning problems, as due to the physical
@@ -45,36 +50,39 @@ joint_limits:
     #
     # Refer to https://github.com/ros-industrial/universal_robot/issues/265 for
     # more information.
-    max_position: !degrees  180.0
-    max_velocity: !degrees  180.0
+    max_position: !degrees  +180.0 #prev 180.0
+    max_velocity: 1.0 #prev !degrees  180.0
     min_position: !degrees -180.0
   wrist_1_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
+    max_acceleration: 0.05
     max_effort: 28.0
     max_position: !degrees  360.0
-    max_velocity: !degrees  180.0
+    max_velocity: 1.0 # prev !degrees  180.0
     min_position: !degrees -360.0
   wrist_2_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
     max_effort: 28.0
+    max_acceleration: 0.05
     max_position: !degrees  360.0
-    max_velocity: !degrees  180.0
+    max_velocity: 1.0 # prev !degrees  180.0
     min_position: !degrees -360.0
   wrist_3_joint:
     # acceleration limits are not publicly available
-    has_acceleration_limits: false
+    has_acceleration_limits: true
     has_effort_limits: true
     has_position_limits: true
     has_velocity_limits: true
+    max_acceleration: 0.05
     max_effort: 28.0
     max_position: !degrees  360.0
-    max_velocity: !degrees  180.0
+    max_velocity: 1.0 # prev !degrees  180.0
     min_position: !degrees -360.0
